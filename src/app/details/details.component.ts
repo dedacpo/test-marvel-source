@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from 'src/app/shared/services/api-service/api-service.service';
+ //import { ApiServiceService } from 'src/app/shared/services/api-service/api-service.service';
 
 @Component({
   selector: 'app-details',
@@ -8,12 +8,12 @@ import { ApiServiceService } from 'src/app/shared/services/api-service/api-servi
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.apiService.getComicById(1220).subscribe(response => {
-      console.log("response", response);
-    })
+    // this.apiService.getComics().subscribe(response => {
+    //   console.log("response", response);
+    // })
   }
 
 }
