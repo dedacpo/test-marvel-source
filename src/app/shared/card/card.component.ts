@@ -14,7 +14,7 @@ export class CardComponent implements OnInit {
   @Input() comicAmount;
   @Input() description;
   ngOnInit(): void {
-    console.log("thumbnail", this.thumbnail)
+
   }
 
 }

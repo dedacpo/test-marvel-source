@@ -5,5 +5,5 @@ export class GetCharactersInformation {
     limit: number
     total: number
     count: number
-    characters: [Character]
+    characters: Character[]
 }

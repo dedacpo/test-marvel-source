@@ -1,1 +1,55 @@
-<div class="main-content">TESTE</div>
+<div class="main-content">
+    <div class="container" *ngIf="details">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                <ngx-slick-carousel *ngIf="details.images.length" class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div ngxSlickItem *ngFor="let image of details.images" class="slide">
+                        <img [src]="image" alt="" width="100%" />
+                    </div>
+                </ngx-slick-carousel>
+                <div *ngIf="!details.images.length">
+                    <img src="./assets/placeholder.png" alt="" width="100%" />
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-12 details-container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 field">
+                        Title
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        {{details.title}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 field">
+                        Description
+                    </div>
+                    <div *ngIf="details.description" class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        {{details.description}}
+                    </div>
+                    <div *ngIf="details.description == null" class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <i>No description was provided for this comic</i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12 field">
+                        Author{{details.authors.length > 1 ? 's' : ''}}
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <span *ngFor="let author of details.authors; let i = index">
+                            {{author}}{{i
+                            < details.authors.length - 1 ? ',' : ''}} </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md- col-sm-12 col-12 details-button">
+                        <a [routerLink]="['/']">
+                            <button class="background-color-second-color-theme">back to home</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

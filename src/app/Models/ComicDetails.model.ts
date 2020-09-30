@@ -5,6 +5,6 @@ export class ComicDetails {
     description: string
     format: string
     thumbnail: string
-    authors: [string]
-    images: [string]
+    authors: string[]
+    images: string[]
 }

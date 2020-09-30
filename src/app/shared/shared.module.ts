@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from 'src/app/shared/card/card.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [

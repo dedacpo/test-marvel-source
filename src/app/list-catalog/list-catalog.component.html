@@ -11,12 +11,11 @@
   </div>
 </section>
 
-<section>
+<section  *ngIf="!notFound">
   <div class="container" *ngIf="comics">
     <div id="card-container">
-     <app-card *ngFor="let comic of comics.comics" [thumbnail]="comic.thumbnail" [title]="comic.title" [url]="['details', comic.id]"></app-card>
+     <app-card *ngFor="let comic of comics.comics" [thumbnail]="comic.thumbnail" [title]="comic.title" [url]="['/details', comic.id]"></app-card>
     </div>
-
     <div class="pagination">
       <form [formGroup]="pagination" (ngSubmit)="changePage()" class="form-paginationContainer">
         <button *ngIf="currentPage > 0" (click)="prevPage()" type="button" class="background-color-second-color-theme">previus page</button>
@@ -26,10 +25,12 @@
         </mat-form-field>
         <button  *ngIf="currentPage < totalPages-1"  (click)="nextPage()" type="button" class="background-color-second-color-theme">next page</button>
       </form>
-
     </div>
-
-
-
   </div>
+</section>
+
+<section *ngIf="notFound">
+    <div class="container">
+        <i>Sorry, no comics were found</i>
+    </div>
 </section>

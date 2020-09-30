@@ -13,7 +13,6 @@ export class AppComponent  implements AfterContentChecked {
 
   constructor(private httpStatus: HTTPStatus,  private cdr: ChangeDetectorRef,){
     this.httpStatus.getHttpStatus().subscribe((status: boolean) => {
-      console.log("aqui", status)
       this.HTTPActivity = status;
     });
     

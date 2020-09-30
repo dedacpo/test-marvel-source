@@ -33,6 +33,7 @@ export class HelpersService {
      let comicDetails = new ComicDetails();   
        comicDetails.id = comicItem.id;
        comicDetails.title = comicItem.title;
+       comicDetails.description = comicItem.description;
        comicDetails.thumbnail = comicItem.thumbnail.path + '.' + comicItem.thumbnail.extension;
        comicDetails.images = comicItem.images.map(comicItemImage => { return comicItemImage.path + '.' + comicItemImage.extension });
        comicDetails.authors = comicItem.creators.items.map(comicItemAuthor => { return comicItemAuthor.name });

@@ -57,6 +57,7 @@ describe('HelpersService', () => {
           {
             id: 500,
             title: 'comic name test',
+            description: 'description for test',
             thumbnail: {
               path: 'path',
               extension: 'jpg'
@@ -85,6 +86,7 @@ describe('HelpersService', () => {
     let expectVar= new ComicDetails();
     expectVar.id = response.data.results[0].id;
     expectVar.title = response.data.results[0].title;
+    expectVar.description = response.data.results[0].description
     expectVar.thumbnail= response.data.results[0].thumbnail.path + '.' + response.data.results[0].thumbnail.extension;;
     expectVar.images= [
       response.data.results[0].images[0].path + '.' + response.data.results[0].images[0].extension

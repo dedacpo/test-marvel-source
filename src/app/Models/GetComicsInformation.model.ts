@@ -5,5 +5,5 @@ export class GetComicsInformation {
     limit: number
     total: number
     count: number
-    comics: [Comic]
+    comics: Comic[]
 }

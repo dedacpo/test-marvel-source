@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTPStatus, HTTPListener } from 'src/app/shared/http.interceptor';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { TopMenuComponent } from './shared/top-menu/top-menu.component';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopMenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
