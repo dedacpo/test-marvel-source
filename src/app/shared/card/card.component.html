@@ -1,0 +1,15 @@
+<a [routerLink]="url">
+    <div class="card" >
+        <div class="card-image">
+            <img [src]="thumbnail" />
+        </div>
+        <div class="card-title">
+            <span  matTooltip="{{description}}">{{title}}</span>
+
+        </div>       
+        <div class="card-amount">
+            <small>{{comicAmount}} commic{{comicAmount > 1 ? 's' : ''}}</small>
+        </div>
+    </div>
+
+</a>

@@ -1,3 +1,35 @@
-<p>
-  customers works!
-</p>
+<section class="main-content">
+  <div class="container">
+    <h1>All {{router.url.includes('comics-character') ? name : ''}} comics</h1>
+    <form class="form-searchContainer" [formGroup]="searchCharacter" (ngSubmit)="performSearch()">
+      <mat-form-field appearance="fill">
+        <mat-label>Search by character name</mat-label>
+        <input formControlName="wordSearch" matInput>
+      </mat-form-field>
+      <button class="background-color-second-color-theme" type="submit">go</button>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="container" *ngIf="comics">
+    <div id="card-container">
+     <app-card *ngFor="let comic of comics.comics" [thumbnail]="comic.thumbnail" [title]="comic.title" [url]="['details', comic.id]"></app-card>
+    </div>
+
+    <div class="pagination">
+      <form [formGroup]="pagination" (ngSubmit)="changePage()" class="form-paginationContainer">
+        <button *ngIf="currentPage > 0" (click)="prevPage()" type="button" class="background-color-second-color-theme">previus page</button>
+        <mat-form-field appearance="fill">
+          <mat-label>page (of {{totalPages}})</mat-label>
+          <input formControlName="pageNumber" matInput>
+        </mat-form-field>
+        <button  *ngIf="currentPage < totalPages-1"  (click)="nextPage()" type="button" class="background-color-second-color-theme">next page</button>
+      </form>
+
+    </div>
+
+
+
+  </div>
+</section>

@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { ApiServiceService } from './api-service.service';
 import { HttpClient, HttpRequest } from '@angular/common/http';
-import { HelpersService } from 'src/app/shared/helpers.service';
+import { HelpersService } from 'src/app/shared/services/helpers/helpers.service';
 import { GetComicsInformation } from 'src/app/Models/GetComicsInformation.model';
 
 describe('ApiServiceService', () => {
@@ -36,7 +36,7 @@ describe('ApiServiceService', () => {
 
   it('should return all comics on GET api request', fakeAsync(() => {
     const pageNumber = '1';
-    const url = `${URL_API}/v1/public/comics?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=40`;    
+    const url = `${URL_API}/v1/public/comics?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=10`;    
     service.getComics(pageNumber).subscribe((data) => { });
     const req = httpTestingController.expectOne(url);
     expect(req.request.method).toBe('GET');
@@ -56,20 +56,8 @@ describe('ApiServiceService', () => {
   it('should return all comics from specific characterId', fakeAsync(() => {
     const id = '1';
     const pageNumber = '1';
-    const url = `${URL_API}/v1/public/comics?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=40&characters=${id}`; 
+    const url = `${URL_API}/v1/public/comics?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=10&characters=${id}`; 
     service.getComicsByCharacterId(id,pageNumber).subscribe((data) => { });
-    const req = httpTestingController.expectOne(url);
-    expect(req.request.method).toBe('GET');
-    tick();
-
-  }));
-
-
-  it('should return all characters that match fullname', fakeAsync(() => {
-    const characterName = 'spider-man';
-    const pageNumber = '1';
-    const url = `${URL_API}/v1/public/characters?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=40&name=${characterName}`; 
-    service.getCharactersByFullName(characterName,pageNumber).subscribe((data) => { });
     const req = httpTestingController.expectOne(url);
     expect(req.request.method).toBe('GET');
     tick();
@@ -79,7 +67,7 @@ describe('ApiServiceService', () => {
   it('should return all characters that match beggining of name', fakeAsync(() => {
     const word = 'spider';
     const pageNumber = '1';
-    const url = `${URL_API}/v1/public/characters?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=40&nameStartsWith=${word}`; 
+    const url = `${URL_API}/v1/public/characters?apikey=${PUBLIC_KEY}&offset=${pageNumber}&limit=10&nameStartsWith=${word}`; 
     service.getCharactersByNameStartsWithWord(word,pageNumber).subscribe((data) => { });
     const req = httpTestingController.expectOne(url);
     expect(req.request.method).toBe('GET');

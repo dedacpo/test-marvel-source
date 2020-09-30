@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GetComicsInformation } from 'src/app/Models/GetComicsInformation.model';
-import { HelpersService } from 'src/app/shared/helpers.service';
+import { HelpersService } from 'src/app/shared/services/helpers/helpers.service';
 import { GetCharactersInformation } from 'src/app/Models/GetCharactersInformation.model';
 import { ComicDetails } from 'src/app/Models/ComicDetails.model';
 
@@ -22,7 +22,7 @@ export class ApiServiceService {
   constructor(private http: HttpClient, private helper: HelpersService) { }
 
   getComics(pageNumber?: string): Observable<GetComicsInformation> {
-    return this.http.get<any>(`${this.URL_API}/v1/public/comics`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '40' } })
+    return this.http.get<any>(`${this.URL_API}/v1/public/comics`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '10' } })
       .pipe(
       map(response => {
         return this.helper.mapComicsResponse(response);
@@ -40,7 +40,7 @@ export class ApiServiceService {
   }
 
   getComicsByCharacterId(characterId: string, pageNumber?: string): Observable<GetComicsInformation> {
-    return this.http.get<any>(`${this.URL_API}/v1/public/comics`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '40', characters: characterId } })
+    return this.http.get<any>(`${this.URL_API}/v1/public/comics`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '10', characters: characterId } })
       .pipe(
       map(response => {
         return this.helper.mapComicsResponse(response);
@@ -48,18 +48,8 @@ export class ApiServiceService {
       )
   }
 
-  getCharactersByFullName(characterName: string, pageNumber?: string): Observable<GetCharactersInformation> {
-    return this.http.get<any>(`${this.URL_API}/v1/public/characters`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '40', name: characterName } })
-      .pipe(
-      map(response => {
-        return this.helper.mapCharactersResponse(response);
-      })
-      )
-  }
-
-
   getCharactersByNameStartsWithWord(word: string, pageNumber?: string): Observable<GetCharactersInformation> {
-    return this.http.get<any>(`${this.URL_API}/v1/public/characters`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '40', nameStartsWith: word } })
+    return this.http.get<any>(`${this.URL_API}/v1/public/characters`, { params: { apikey: this.PUBLIC_KEY, offset: pageNumber, limit: '10', nameStartsWith: word } })
       .pipe(
       map(response => {
         return this.helper.mapCharactersResponse(response);

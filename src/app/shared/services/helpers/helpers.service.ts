@@ -50,7 +50,7 @@ export class HelpersService {
       let character = new Character();
       character.id = characterItem.id;
       character.name = characterItem.name;
-      character.thumbnail = characterItem.thumbnail.path + '.' + characterItem.thumbnail.extension;;
+      character.thumbnail = characterItem.thumbnail.path + '.' + characterItem.thumbnail.extension;
       character.description = characterItem.description;
       character.comicsAmount = characterItem.comics.available
       return character;

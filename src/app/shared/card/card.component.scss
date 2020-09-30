@@ -1,0 +1,29 @@
+
+ 
+:host{
+    margin: 10px;
+}
+.card{    
+    padding: 15px;
+    max-width: 200px;
+    width:100%;
+    height: 100%;
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .card-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        margin-top:15px;
+        font-weight: bold;
+        color: black !important;
+        text-decoration: none !important;
+    }
+}
+
+:host:hover a{   
+    text-decoration: none !important;    
+}
