@@ -29,9 +29,7 @@ export class ListCatalogComponent implements OnInit {
   }
 
   getData(pageNumber?) {
-    console.log("entrei aqui 0", this.router)
     if (this.router.url.includes('comics-character')){
-      console.log("entrei aqui 2")
       this.apiService.getComicsByCharacterId(this.route.snapshot.params.id, pageNumber.toString()).subscribe(response => {
         this.name = decodeURI(this.route.snapshot.params.name)
         if (!(response.comics as any).length) {
@@ -43,10 +41,7 @@ export class ListCatalogComponent implements OnInit {
     }
     
     else{
-      console.log("entrei aqui 1")
       this.apiService.getComics(pageNumber.toString()).subscribe(response => {
-        console.log(response)
-        console.log("length",(response.comics as any).length)
         if (!(response.comics as any).length) {
           this.notFound = true;
           return;

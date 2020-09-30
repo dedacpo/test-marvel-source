@@ -10,6 +10,7 @@ import { HTTPStatus, HTTPListener } from 'src/app/shared/http.interceptor';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { TopMenuComponent } from './shared/top-menu/top-menu.component';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from 'src/app/shared/footer/footer.component';
       provide: HTTP_INTERCEPTORS,
       useClass: HTTPListener,
       multi: true,
-    }
+    },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],
   exports:[MatProgressSpinnerModule]

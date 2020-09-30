@@ -48,7 +48,6 @@ export class SearchCharacterComponent implements OnInit {
 
   changePage() {
     const pageNumber = this.pagination.getRawValue();
-    console.log("pageNumber",pageNumber)
     this.getData(pageNumber.pageNumber * this.characters.limit - this.characters.limit);
   }
   nextPage() {
