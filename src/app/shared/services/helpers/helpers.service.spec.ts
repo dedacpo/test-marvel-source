@@ -35,13 +35,12 @@ describe('HelpersService', () => {
       }
 
     };
-    let result = service.mapComicsResponse(response);  
-   
+    let result = service.mapComicsResponse(response);
     let expectVar= new GetComicsInformation();
     expectVar.offset = response.data.offset;
     expectVar.limit = response.data.limit;
     expectVar.total= response.data.total;
-    expectVar.count= response.data.count; 
+    expectVar.count= response.data.count;
     let comic = new Comic();
     comic.id = response.data.results[0].id;
     comic.title = response.data.results[0].title;
@@ -81,8 +80,7 @@ describe('HelpersService', () => {
         ]
       }
     };
-    let result = service.mapComicDetailsResponse(response);  
-   
+    let result = service.mapComicDetailsResponse(response);
     let expectVar= new ComicDetails();
     expectVar.id = response.data.results[0].id;
     expectVar.title = response.data.results[0].title;
@@ -93,11 +91,10 @@ describe('HelpersService', () => {
     ];
     expectVar.authors = [
       response.data.results[0].creators.items[0].name
-    ]    
+    ]
     expect(result).toEqual([expectVar]);
   });
 
-  
   it('should successfully convert object to GetCharactersInformation', () => {
     let response = {
       data: {
@@ -116,19 +113,18 @@ describe('HelpersService', () => {
             description:'this is a description',
             comics:{
               available:45
-            }            
+            }
           }
         ]
       }
 
     };
-    let result = service.mapCharactersResponse(response);  
-   
+    let result = service.mapCharactersResponse(response);
     let expectVar= new GetCharactersInformation();
     expectVar.offset = response.data.offset;
     expectVar.limit = response.data.limit;
     expectVar.total= response.data.total;
-    expectVar.count= response.data.count;   
+    expectVar.count= response.data.count;
     let comic = new Character();
     comic.id = response.data.results[0].id;
     comic.name = response.data.results[0].name;

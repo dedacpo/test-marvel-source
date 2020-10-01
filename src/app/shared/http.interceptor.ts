@@ -34,9 +34,10 @@ export class HTTPListener implements HttpInterceptor {
   constructor(private status: HTTPStatus) {}
   private numberRequest = 0;
 intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    window.scroll(0, 0);
     this.numberRequest++;
     this.status.setHttpStatus(true)
-    return next.handle(req).pipe(
+    return next.handle(req).pipe(    
         finalize(() =>{
             this.numberRequest--;
             if(this.numberRequest <= 0)

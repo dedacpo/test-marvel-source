@@ -18,7 +18,7 @@ describe('DetailsComponent', () => {
 
   let activatedRouteStub = {
     snapshot: {
-      params:{        
+      params:{
         id:'500'
       }
     }
@@ -46,8 +46,8 @@ describe('DetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set details with response API', () => {    
-    const data:ComicDetails[] =[ 
+  it('should set details with response API', () => {
+    const data:ComicDetails[] =[
       {
         id: 500,
         title: 'comic name test',

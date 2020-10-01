@@ -4,11 +4,8 @@ import { ListCatalogComponent } from './list-catalog.component';
 import { FormBuilder } from '@angular/forms';
 import { ApiServiceService } from 'src/app/shared/services/api-service/api-service.service';
 import { of } from 'rxjs';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GetComicsInformation } from 'src/app/Models/GetComicsInformation.model';
-import { Comic } from 'src/app/Models/Comic.model';
-import { inject } from '@angular/core';
-import { GetCharactersInformation } from 'src/app/Models/GetCharactersInformation.model';
 
 describe('ListCatalogComponent', () => {
   let component: ListCatalogComponent;
@@ -36,7 +33,6 @@ describe('ListCatalogComponent', () => {
     url:''
   }
 
-  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListCatalogComponent ],
