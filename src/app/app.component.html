@@ -4,9 +4,9 @@
 
 
 
-<div (window:resize)="onResized($event)" [ngStyle]="{'min-height': clientHeight + 'px', 'margin-bottom': '-200px'}">
+<div (window:resize)="onResized()" [ngStyle]="{'min-height': clientHeight + 'px', 'margin-bottom': '-200px'}">
     <app-top-menu></app-top-menu>
-    <router-outlet (activate)="onActivate($event)"></router-outlet>
+    <router-outlet (activate)="onActivate()"></router-outlet>
     <div style="height: 200px"></div>
 </div>
 
