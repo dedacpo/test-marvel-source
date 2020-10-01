@@ -27,4 +27,4 @@ Run `ng serve` to serve the application under localhost. Navigate to `http://loc
 
 
 ## Hosting
-The app was also host on GitHub Pages. Acess __ to check it out.
+The app was also host on GitHub Pages. Acess https://dedacpo.github.io/test-marvel-source/ to check it out.
